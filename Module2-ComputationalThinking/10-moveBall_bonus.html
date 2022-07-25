@@ -1,0 +1,58 @@
+<div id="ball" style="
+    z-index: 5;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: blue"></div>
+
+<!-- <div id="ball" style="
+    z-index: 5;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: red"></div> -->
+
+<script>
+    var velocityX = 40;
+    var velocityY = 30;
+    var positionX = 0;
+    var positionY = 0;
+    var ball = document.getElementById('ball');
+    var xMin = 0;
+    var xMax = 500;
+    var yMin = 0;
+    var yMax = 500;
+    var reverse = false;
+    var colorArray = ["red", "blue", "green", "yellow", "pink", "brown", "purple"];
+
+// YOUR CODE 
+// ----------------
+    function moveBall() {
+        if(reverse) {
+            positionX = positionX - velocityX;
+            positionY = positionY - velocityY;
+            ball.style.left = positionX + "px";
+            ball.style.top = positionY + "px";
+        }
+        else {
+            positionX = positionX + velocityX;
+            positionY = positionY + velocityY;
+            ball.style.left = positionX + "px";
+            ball.style.top = positionY + "px";
+        }
+
+        if(positionX > xMax || positionX === xMin || positionY > yMax || positionY === yMin) {
+            reverse = !reverse;
+            ball.style.background = "green";
+        }
+    }
+
+    // This call the moveBall function every 100ms
+    setInterval(moveBall, 100);
+</script>

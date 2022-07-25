@@ -1,0 +1,28 @@
+Hello from Andrea's debug file
+
+<script>
+    console.log("hello");
+
+    let list = "";
+    const names = ["Obi-Wan", "Anakin", "Ahsoka"];
+
+    for(let i = 0; i < names.length; i++) {
+        const name = names[i] + " ";
+        list += name; 
+    }
+    console.log(list);
+
+    let notFound = true;
+    let counter = 0;
+
+    while(notFound) {
+        if(counter === 5000) {
+            notFound = false; // Need this to prevent infinite loop!
+            console.log("Found 5000");
+        }
+        else {
+            console.log("Still Looking");
+        }
+        counter++;
+    }
+</script>
