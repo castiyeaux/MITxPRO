@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+            // Filtering an array of data
+            const employees = [
+                {name: "peter", salary: 100000},
+                {name: "bruce", salary: 425000},
+                {name: "hanna", salary: 750000},
+                {name: "james", salary: 500800}
+            ];
+
+            function isBigEnough(element) {
+                let comparison = element.salary >= 500000;
+                return comparison;
+            }
+
+            const filtered = employees.filter(isBigEnough);
+            console.log(JSON.stringify(filtered));
+        </script>
+    </head>
+
+    <body>
+        
+    </body>
+</html>

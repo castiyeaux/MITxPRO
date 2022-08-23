@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+            const employees = [
+                {name: "peter", salary: 100000},
+                {name: "bruce", salary: 125000},
+                {name: "hanna", salary: 250000},
+            ];
+
+            let salaries = 0;
+            function add(item, counter, array) {
+                // item, counter, and array are automatically passed in on a callback function for an array
+                // item = each element; counter = 0; array = the array .forEach() is being called from
+                salaries += Number(item.salary);
+            }
+
+            employees.forEach(add);
+            console.log(salaries);
+        </script>
+    </head>
+
+    <body>
+        
+    </body>
+</html>
