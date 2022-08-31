@@ -1,0 +1,34 @@
+h1 {
+    color: #0170FF;
+}
+
+a {
+    color: #FF0101;
+}
+
+li {
+    padding: 10px 20px;
+    border-left: 5px #005CFC solid;
+    background-color: #F1F1F1;
+    list-style-type: none;
+}
+
+.content {
+    padding: 20px;
+    margin: 10px;
+    font-style: italic;
+    background-color: #424EDC;
+    color: #FFFFFF;
+}
+
+.active {
+    border-left: 5px #01E4FF solid;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    background-color: #424EDC;
+    color: #FFFFFF;
+}
