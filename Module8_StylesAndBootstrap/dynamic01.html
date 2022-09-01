@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dynamic Styles - Timers</title>
+
+        <style>
+            .on {
+                background-color: orange;
+            }
+
+            div {
+                padding: 50px;
+                text-align: center;
+                border-style: solid;
+                font-size: 2em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button onclick="toggle()">TOGGLE</button>
+        <button onclick="start()">START</button>
+        <button onclick="stop()">STOP</button>
+        <div id="target">Target</div>
+
+        <script>
+            function toggle() {
+                const element = document.getElementById("target");
+                element.classList.toggle("on");
+            }
+
+            let timer = null;
+
+            function start() {
+                timer = setTimeout(() => {
+                    toggle();
+                    start();
+                }, 1000);
+            }
+
+            function stop() {
+                clearTimeout(timer);
+            }
+        </script>
+    </body>
+</html>
