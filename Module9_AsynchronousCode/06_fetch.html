@@ -1,0 +1,15 @@
+<script>
+    // Only works if server allows CORS
+        // Cross Origin Resource Sharing
+        // Most private servers won't allow it
+        // But many big services do allow these connections
+            // Ex. Google
+
+    (async function() {
+        let url = "https://fonts.google.com/specimen/IBM+Plex+Sans?query=IBM+Plex"; // Doesn't work
+
+        const response = await fetch(url);
+        const data = await response.text();
+        console.log(data);
+    })();
+</script>
