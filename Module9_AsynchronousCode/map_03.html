@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Leaflet Marker Cluster</title>
+
+        <script src="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #map {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%
+            }
+        </style>
+    </head>
+
+    <body>
+        <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css' rel='stylesheet' />
+        <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' />
+
+        <!-- Example data -->
+        <script src="/MITxPRO/Module9_AsynchronousCode/asynchronous-code-self-study-activities_starter/crime_2012_december.json"></script>
+
+        <div id='map'></div>
+
+        <script>
+            L.mapbox.accessToken = 'pk.eyJ1IjoiY2FzdGl5ZWF1eCIsImEiOiJja2V3cnR6cnUwNm8wMnN0YTJ3bm9rZjh3In0.t86TvIkBhgIUtA6d--wOUg';
+
+            const map = L.mapbox.map("map").setView([41.873941, -87.624225], 12).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+
+            const markers = new L.MarkerClusterGroup();
+            const data = chicago.data;
+            const length = data.length;
+
+            for(let i = 0; i < length; i++) {
+                const record = data[i];
+                const title = record[13];
+                const marker = L.marker(new L.LatLng(record[26], record[28]), {
+                    icon: L.mapbox.marker.icon({
+                        "marker-symbol": "post",
+                        "marker-color": "0044FF"
+                    }),
+                    title: title
+                });
+                marker.bindPopup(title);
+                markers.addLayer(marker);
+            }
+            map.addLayer(markers);
+        </script>
+    </body>
+</html>
